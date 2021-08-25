@@ -1,0 +1,63 @@
+.customcard {
+  /* top: 94px;
+  left: 120px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 300px;
+  height: 158px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #0000000a;
+  border-radius: 12px;
+  opacity: 1;
+  /* position: fixed; */
+}
+
+.customcard_title {
+  /* top: 118px;
+  left: 144px; */
+  margin-left: 20px;
+  width: 174px;
+  height: 24px;
+  text-align: left;
+  font: normal normal medium 20px/24px Montserrat;
+  letter-spacing: 0px;
+  color: #537178;
+  opacity: 1;
+  font-size: large;
+  font-weight: 600;
+  /* position: fixed; */
+}
+
+.customcard__taskCount {
+  display: flex;
+  margin-left: 20px;
+}
+
+.customcard__available {
+  /* top: 146px;
+  left: 144px; */
+  width: 37px;
+  height: 78px;
+  text-align: left;
+  font: normal normal medium 64px/78px Montserrat;
+  font-size: 60px;
+  letter-spacing: 0px;
+  color: #5285ec;
+  opacity: 1;
+  /* position: fixed; */
+}
+
+.customcard__total {
+  /* top: 200px;
+  left: 176px; */
+  margin-top: 55px;
+  width: 37px;
+  height: 24px;
+  text-align: left;
+  font: normal normal medium 20px/24px Montserrat;
+  letter-spacing: 0px;
+  color: #8f9ea2;
+  opacity: 1;
+  /* position: fixed; */
+}

@@ -1,0 +1,119 @@
+.utilitybar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.utilitybar__title {
+  /* top: 296px;
+  left: 120px; */
+  width: 55px;
+  height: 24px;
+  text-align: left;
+  font: normal normal medium 20px/24px Montserrat;
+  letter-spacing: 0px;
+  color: #425458;
+  opacity: 1;
+  font-size: large;
+  font-weight: 600;
+  /* position: fixed; */
+}
+
+.utilitybar__right {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.utilitybar__searchContainer {
+  /* top: 286px;
+  left: 700px; */
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+
+  /* width: 244px; */
+  height: 40px;
+  background: #d9dfeb 0% 0% no-repeat padding-box;
+  border-radius: 8px;
+  opacity: 1;
+  /* 
+  position: fixed; */
+}
+
+.utilitybar__input {
+  /* top: 297px;
+  left: 740px; */
+  flex-grow: 1;
+  width: 148px;
+  height: 18px;
+  text-align: left;
+  font: normal normal medium 14px/18px Montserrat;
+  letter-spacing: 0px;
+  color: #7a7d7e;
+  opacity: 1;
+  /* position: fixed; */
+  border: none;
+  outline: none;
+  background: transparent;
+  margin-left: 5px;
+}
+
+.utilitybar__input::-webkit-input-placeholder {
+  /* top: 297px;
+  left: 740px; */
+
+  width: 148px;
+  height: 18px;
+  text-align: left;
+  font: normal normal medium 14px/18px Montserrat;
+  letter-spacing: 0px;
+  color: #7a7d7e;
+  opacity: 1;
+  /* position: sticky; */
+}
+
+.utilitybar__button {
+  /* top: 286px;
+  left: 956px; */
+  width: fit-content;
+  height: 40px;
+  background: #5285ec 0% 0% no-repeat padding-box;
+  border-radius: 8px;
+  opacity: 1;
+  /* position: fixed; */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.utilitybar__icon {
+  /* top: 298px;
+  left: 715px; */
+  margin-left: 10px;
+  width: 16px;
+  height: 16px;
+  background: transparent 0% 0% no-repeat padding-box;
+  opacity: 1;
+  /* position: fixed; */
+  z-index: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .utilitybar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .utilitybar__right {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    flex-direction: column;
+  }
+
+  .utilitybar__button {
+    margin-top: 5px;
+    width: 97%;
+  }
+}
