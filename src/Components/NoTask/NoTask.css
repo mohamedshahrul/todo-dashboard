@@ -1,18 +1,29 @@
 .notask {
-  top: 271px;
-  left: 448px;
+  /* top: 271px;
+  left: 448px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 304px;
   height: 158px;
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 6px #0000000a;
   border-radius: 12px;
   opacity: 1;
-  position: fixed;
+  position: relative;
+  top: 50%;
+  margin: auto;
+  transform: translateY(-50%);
+  /* position: fixed; */
 }
 
 .notask__title {
-  top: 308px;
-  left: 512px;
+  /* top: 308px;
+  left: 512px; */
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: large;
   width: 176px;
   height: 24px;
   text-align: center;
@@ -20,18 +31,18 @@
   letter-spacing: 0px;
   color: #537178;
   opacity: 1;
-  position: fixed;
+  /* position: fixed; */
 }
 
 .notask__button {
-  top: 352px;
-  left: 538px;
+  /* top: 352px;
+  left: 538px; */
   width: 124px;
   height: 40px;
   background: #5285ec 0% 0% no-repeat padding-box;
   border-radius: 8px;
   opacity: 1;
-  position: fixed;
+  /* position: fixed; */
   border: none;
   color: #ffffff;
   cursor: pointer;

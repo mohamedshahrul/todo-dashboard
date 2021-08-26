@@ -1,12 +1,18 @@
+import { useSelector } from "react-redux";
 import "./CustomCard.css";
 
 function CustomCard() {
+  const { tasks, isOpenNewTask } = useSelector((state) => state.tasks);
+  const completed = tasks?.data?.filter(({ completed, task }) => {
+    if (completed === true) return task;
+  });
+
   return (
     <div className="customcard">
       <label className="customcard_title">Task Completed</label>
       <div className="customcard__taskCount">
-        <h1 className="customcard__available">5</h1>
-        <p className="customcard__total">/ 20</p>
+        <h1 className="customcard__available">{completed?.length}</h1>
+        <p className="customcard__total">/ {tasks?.data?.length}</p>
       </div>
     </div>
   );

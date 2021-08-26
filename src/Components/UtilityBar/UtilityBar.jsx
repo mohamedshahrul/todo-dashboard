@@ -1,6 +1,10 @@
 import "./UtilityBar.css";
+import { useDispatch } from "react-redux";
+import { openNewTask } from "../../actions/todos";
 
 function UtilityBar() {
+  const dispatch = useDispatch();
+
   return (
     <div className="utilitybar">
       <div>
@@ -15,7 +19,14 @@ function UtilityBar() {
             className="utilitybar__input"
           />
         </div>
-        <button className="utilitybar__button">+ New Task</button>
+        <button
+          className="utilitybar__button"
+          onClick={() => {
+            dispatch(openNewTask());
+          }}
+        >
+          + New Task
+        </button>
       </div>
     </div>
   );

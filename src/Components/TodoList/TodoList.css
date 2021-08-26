@@ -35,6 +35,8 @@
   color: #5285ec;
   opacity: 1;
   font-size: large;
+  overflow-x: scroll;
+  flex-grow: 1;
   /* position: fixed; */
 }
 
@@ -89,4 +91,15 @@
   background: #e8e8e8 0% 0% no-repeat padding-box;
   opacity: 1;
   /* position: fixed; */
+}
+
+/*Hide scrollbar  for Chrome, Safari and Opera*/
+.todolist__task::-webkit-scrollbar {
+  display: none;
+}
+
+/*Hide scrollbar  for IE, Edge and Firefox*/
+.todolist__task {
+  -ms-overflow-style: none; /*IE, Edge*/
+  scrollbar-width: none; /*Firefox*/
 }

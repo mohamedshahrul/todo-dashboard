@@ -1,14 +1,23 @@
+import { useSelector } from "react-redux";
 import "./CreatedTasks.css";
 
 function CreatedTasks() {
+  const { tasks, isOpenNewTask } = useSelector((state) => state.tasks);
+
   return (
     <div className="createdtasks">
       <label className="createdtasks_title">Latest Created Tasks</label>
-      <ul className="createdtasks_list">
-        <li>Clean the room</li>
-        <li>Buy Some vegetables, chicken..</li>
-        <li>Reinstall windows on PC</li>
-      </ul>
+      <div className="createdtasks__contianer">
+        <ul reversed className="createdtasks_list">
+          {tasks?.data
+            ?.map(({ task, _id }) => (
+              <li task={task} key={_id}>
+                {task}
+              </li>
+            ))
+            .reverse()}
+        </ul>
+      </div>
     </div>
   );
 }

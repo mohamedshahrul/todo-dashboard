@@ -1,11 +1,16 @@
+import { useDispatch } from "react-redux";
+import { deleteTask } from "../../actions/todos";
 import "./TodoList.css";
-function TodoList() {
+
+function TodoList({ task, id }) {
+  const dispatch = useDispatch();
+
   return (
     <div className="todolist">
       <div className="todolist__container">
         <div className="todolist__inputContainer">
           <input type="checkbox" className="todolist__checkbox" />
-          <p className="todolist__task">Clean the room</p>
+          <p className="todolist__task">{task}</p>
         </div>
         <div className="todolist__iconContainer">
           <img
@@ -17,6 +22,7 @@ function TodoList() {
             src="image/trash-solid.png"
             alt="Delete"
             className="todolist__delete"
+            onClick={() => dispatch(deleteTask(id))}
           />
         </div>
       </div>
