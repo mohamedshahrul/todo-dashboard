@@ -1,7 +1,7 @@
 import "./NewTask.css";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { closeNewTask, createTask } from "../../actions/todos";
+import { closeNewTask, createTask, getDashboard } from "../../actions/todos";
 import { useState } from "react";
 
 function NewTask() {

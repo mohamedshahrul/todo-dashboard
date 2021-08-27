@@ -18,13 +18,15 @@ function Dashboard() {
     dispatch(getDashboard());
   }, [dispatch, isOpenNewTask]);
 
-  if (!tasks?.data?.length && !isOpenNewTask)
-    return (
-      <>
-        <Header />
-        <NoTask />
-      </>
-    );
+  if (tasks?.data?.length === 0) {
+    if (!tasks?.data?.length && !isOpenNewTask)
+      return (
+        <>
+          <Header />
+          <NoTask />
+        </>
+      );
+  }
 
   return (
     <>

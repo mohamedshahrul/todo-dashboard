@@ -14,7 +14,6 @@ export default (
   state = { isLoading: true, tasks: [], isOpenNewTask: false },
   action
 ) => {
-  console.log(state.tasks.data);
   switch (action.type) {
     case START_LOADING:
       return { ...state, isLoading: true };

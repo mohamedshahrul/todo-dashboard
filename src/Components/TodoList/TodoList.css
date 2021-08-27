@@ -40,6 +40,11 @@
   /* position: fixed; */
 }
 
+.todolist__checked {
+  text-decoration: line-through;
+  color: #537178;
+}
+
 .todolist__inputContainer {
   display: flex;
   align-items: center;

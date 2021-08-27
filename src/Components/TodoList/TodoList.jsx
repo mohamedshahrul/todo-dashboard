@@ -1,16 +1,39 @@
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteTask } from "../../actions/todos";
+import {
+  closeNewTask,
+  deleteTask,
+  getDashboard,
+  updateTask,
+} from "../../actions/todos";
+
 import "./TodoList.css";
 
-function TodoList({ task, id }) {
+function TodoList({ task, id, completed }) {
   const dispatch = useDispatch();
+  const [isChecked, setIsChecked] = useState(completed);
 
   return (
     <div className="todolist">
       <div className="todolist__container">
         <div className="todolist__inputContainer">
-          <input type="checkbox" className="todolist__checkbox" />
-          <p className="todolist__task">{task}</p>
+          <input
+            defaultChecked={isChecked}
+            type="checkbox"
+            className="todolist__checkbox"
+            onChange={() => {
+              setIsChecked((isChecked) => !isChecked);
+              dispatch(
+                updateTask(id, {
+                  ...task,
+                  completed: !isChecked,
+                })
+              );
+            }}
+          />
+          <p className={`todolist__task ${isChecked && "todolist__checked"}`}>
+            {task}
+          </p>
         </div>
         <div className="todolist__iconContainer">
           <img
@@ -22,7 +45,9 @@ function TodoList({ task, id }) {
             src="image/trash-solid.png"
             alt="Delete"
             className="todolist__delete"
-            onClick={() => dispatch(deleteTask(id))}
+            onClick={() => {
+              dispatch(deleteTask(id));
+            }}
           />
         </div>
       </div>
