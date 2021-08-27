@@ -3,7 +3,7 @@ import axios from "axios";
 // const API = axios.create({ baseURL: "http://192.168.0.170:5000" });
 
 const API = axios.create({
-  baseURL: "https://social-media-app-clone.herokuapp.com/",
+  baseURL: "https://todo-app-shahrul.herokuapp.com/",
 });
 
 API.interceptors.request.use((req) => {
