@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://192.168.0.170:5000" });
+// const API = axios.create({ baseURL: "http://192.168.0.170:5000" });
 
-// const API = axios.create({
-//   baseURL: "https://social-media-app-clone.herokuapp.com",
-// });
+const API = axios.create({
+  baseURL: "https://social-media-app-clone.herokuapp.com/",
+});
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {
