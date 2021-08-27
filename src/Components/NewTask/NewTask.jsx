@@ -51,6 +51,7 @@ function NewTask() {
       dispatch(closeNewTask());
     }
   };
+  console.log(!postData?.task);
 
   return (
     <div className="newtask__modal" onClick={close}>
@@ -75,7 +76,11 @@ function NewTask() {
                 : setEditTask(e.target.value)
             }
           />
-          <button type="submit" className="newtask__button">
+          <button
+            type="submit"
+            className="newtask__button"
+            disabled={!edit ? !postData.task : !editTask}
+          >
             {!edit ? "+ New Task" : "Edit Task"}
           </button>
         </form>

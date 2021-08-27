@@ -4,7 +4,6 @@ import {
   UPDATE,
   DELETE,
   FETCH_DASHBOARD,
-  FETCH_TASKS,
   START_LOADING,
   END_LOADING,
   NEW_TASK,
@@ -12,6 +11,7 @@ import {
   OPEN_MODAL,
   CLOSE_MODAL,
   EDIT_MODAL,
+  FETCH_BY_SEARCH,
 } from "../constants/actionTypes";
 
 export const getDashboard = (id) => async (dispatch) => {
@@ -26,12 +26,18 @@ export const getDashboard = (id) => async (dispatch) => {
   }
 };
 
-export const getTasks = () => async (dispatch) => {
+export const getPostsBySearch = (searchQuery) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    const { data } = await api.fetchTasks();
+    const {
+      data: { data },
+    } = await api.fetchPostsBySearch(searchQuery);
+    if (data?.length > 0) {
+      dispatch({ type: FETCH_BY_SEARCH, payload: data });
+    } else {
+      alert("No Result");
+    }
 
-    dispatch({ type: FETCH_TASKS, payload: data });
     dispatch({ type: END_LOADING });
   } catch (error) {
     console.log(error);

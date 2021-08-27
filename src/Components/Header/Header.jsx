@@ -38,6 +38,9 @@ function Header() {
             src="image/desktop.png"
             alt="Profile"
             className="header__image"
+            onClick={() => {
+              history.push("/");
+            }}
           />
           <p className="header__name">{user?.result?.displayName}</p>
         </div>

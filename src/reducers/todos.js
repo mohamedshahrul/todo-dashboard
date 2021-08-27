@@ -3,7 +3,7 @@ import {
   UPDATE,
   DELETE,
   FETCH_DASHBOARD,
-  FETCH_TASKS,
+  FETCH_BY_SEARCH,
   START_LOADING,
   END_LOADING,
   NEW_TASK,
@@ -23,6 +23,7 @@ export default (
   },
   action
 ) => {
+  console.log(action.payload);
   switch (action.type) {
     case START_LOADING:
       return { ...state, isLoading: true };
@@ -36,7 +37,7 @@ export default (
         tasks: action.payload.data,
       };
 
-    case FETCH_TASKS:
+    case FETCH_BY_SEARCH:
       return {
         ...state,
         tasks: action.payload,

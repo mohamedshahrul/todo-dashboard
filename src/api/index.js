@@ -19,8 +19,10 @@ export const fetchDashboard = (id) => {
   return API.get(`/todos/dashboard/${id}`);
 };
 
-export const fetchTasks = () => {
-  return API.get(`/todos/tasks`);
+export const fetchPostsBySearch = (searchQuery) => {
+  return API.get(
+    `/todos/search?searchQuery=${searchQuery.searchInput || "none"}`
+  );
 };
 
 export const createTask = (newTodo) => {
