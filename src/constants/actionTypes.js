@@ -12,3 +12,7 @@ export const END_LOADING = "END_LOADING";
 
 export const NEW_TASK = "NEW_TASK";
 export const NEW_TASK_CLOSE = "NEW_TASK_CLOSE";
+
+export const OPEN_MODAL = "OPEN_MODAL";
+export const CLOSE_MODAL = "CLOSE_MODAL";
+export const EDIT_MODAL = "EDIT_MODAL";

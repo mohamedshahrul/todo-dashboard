@@ -6,6 +6,7 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 
 function App() {
   const user = JSON.parse(localStorage.getItem("profile"));
+
   return (
     <BrowserRouter forceRefresh={true}>
       <div className="app">

@@ -1,14 +1,22 @@
 import "./NewTask.css";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { closeNewTask, createTask, getDashboard } from "../../actions/todos";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  closeModal,
+  closeNewTask,
+  createTask,
+  getDashboard,
+  updateTask,
+} from "../../actions/todos";
+import { useRef, useState } from "react";
 
 function NewTask() {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const inpref = useRef();
 
   const user = JSON.parse(localStorage.getItem("profile"));
+  const { task, id, edit } = useSelector((state) => state.tasks);
+
+  const [editTask, setEditTask] = useState(task);
 
   const [postData, setPostData] = useState({
     task: "",
@@ -17,36 +25,61 @@ function NewTask() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(
-      createTask(
-        { ...postData, completed: false, userId: user?.result?.userId },
-        history
-      )
-    );
+    if (!edit)
+      dispatch(
+        createTask({
+          ...postData,
+          completed: false,
+          userId: user?.result?.userId,
+        })
+      );
+    else
+      dispatch(
+        updateTask(id, {
+          ...postData,
+          task: editTask,
+        })
+      );
+
     dispatch(closeNewTask());
+    dispatch(closeModal());
+  };
+
+  const close = (e) => {
+    if (e.target.className === "newtask__modal") {
+      dispatch(closeModal());
+      dispatch(closeNewTask());
+    }
   };
 
   return (
-    <div className="newtask">
-      <p className="newtask__title">+ New Task</p>
-      <form
-        autoComplete="off"
-        noValidate
-        onSubmit={handleSubmit}
-        className="newtask__form"
-      >
-        <input
-          maxLength="40"
-          className="newtask__input"
-          type="text"
-          placeholder="Task Name"
-          value={postData.task}
-          onChange={(e) => setPostData({ ...postData, task: e.target.value })}
-        />
-        <button type="submit" className="newtask__button">
-          + New Task
-        </button>
-      </form>
+    <div className="newtask__modal" onClick={close}>
+      <div className="newtask">
+        <p className="newtask__title">{!edit ? "+ New Task" : "Edit Task"}</p>
+        <form
+          autoComplete="off"
+          noValidate
+          onSubmit={handleSubmit}
+          className="newtask__form"
+        >
+          <input
+            ref={inpref}
+            maxLength="40"
+            className="newtask__input"
+            type="text"
+            placeholder="Task Name"
+            value={!edit ? postData.task : editTask}
+            onChange={(e) =>
+              !edit
+                ? setPostData({ ...postData, task: e.target.value })
+                : setEditTask(e.target.value)
+            }
+          />
+          <button type="submit" className="newtask__button">
+            {!edit ? "+ New Task" : "Edit Task"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

@@ -9,12 +9,15 @@ import {
   END_LOADING,
   NEW_TASK,
   NEW_TASK_CLOSE,
+  OPEN_MODAL,
+  CLOSE_MODAL,
+  EDIT_MODAL,
 } from "../constants/actionTypes";
 
-export const getDashboard = () => async (dispatch) => {
+export const getDashboard = (id) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    const { data } = await api.fetchDashboard();
+    const { data } = await api.fetchDashboard(id);
 
     dispatch({ type: FETCH_DASHBOARD, payload: data });
     dispatch({ type: END_LOADING });
@@ -35,7 +38,7 @@ export const getTasks = () => async (dispatch) => {
   }
 };
 
-export const createTask = (task, history) => async (dispatch) => {
+export const createTask = (task) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
     const { data } = await api.createTask(task);
@@ -51,7 +54,6 @@ export const createTask = (task, history) => async (dispatch) => {
 export const updateTask = (id, task) => async (dispatch) => {
   try {
     const { data } = await api.updateTask(id, task);
-    // dispatch(getDashboard());
     dispatch({ type: UPDATE, payload: data });
   } catch (error) {
     console.log(error);
@@ -80,6 +82,30 @@ export const openNewTask = () => async (dispatch) => {
 export const closeNewTask = () => async (dispatch) => {
   try {
     dispatch({ type: NEW_TASK_CLOSE });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const openModal = () => async (dispatch) => {
+  try {
+    dispatch({ type: OPEN_MODAL });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const closeModal = () => async (dispatch) => {
+  try {
+    dispatch({ type: CLOSE_MODAL });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const openEdit = (task, id) => async (dispatch) => {
+  try {
+    dispatch({ type: EDIT_MODAL, payload: { task, id } });
   } catch (error) {
     console.log(error);
   }

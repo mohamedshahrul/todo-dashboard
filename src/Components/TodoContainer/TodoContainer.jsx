@@ -9,9 +9,11 @@ function TodoContainer() {
   return (
     <>
       <div className="todoContainer">
-        {tasks?.map(({ task, completed, _id }) => (
-          <TodoList task={task} id={_id} key={_id} completed={completed} />
-        ))}
+        {tasks
+          ?.map(({ task, completed, _id }) => (
+            <TodoList task={task} id={_id} key={_id} completed={completed} />
+          ))
+          .reverse()}
       </div>
     </>
   );

@@ -12,10 +12,12 @@ import UtilityBar from "../UtilityBar/UtilityBar";
 
 function Dashboard() {
   const dispatch = useDispatch();
-  const { tasks, isOpenNewTask } = useSelector((state) => state.tasks);
-  console.log(tasks);
+  const { tasks, isOpenNewTask, isModal } = useSelector((state) => state.tasks);
+  const user = JSON.parse(localStorage.getItem("profile"));
+  const id = user?.result?.userId;
+
   useEffect(() => {
-    dispatch(getDashboard());
+    dispatch(getDashboard(id));
   }, [dispatch]);
 
   if (!tasks?.length && !isOpenNewTask)
@@ -33,7 +35,8 @@ function Dashboard() {
         <NewTask />
       ) : (
         <>
-          <div className="app__container">
+          {isModal && <NewTask />}
+          <div className={`app__container ${isModal && "app__modal"}`}>
             <section className="app__cardContainer">
               <CustomCard />
               <CreatedTasks />

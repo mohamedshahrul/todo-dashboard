@@ -4,6 +4,8 @@ import {
   closeNewTask,
   deleteTask,
   getDashboard,
+  openEdit,
+  openModal,
   updateTask,
 } from "../../actions/todos";
 
@@ -40,6 +42,9 @@ function TodoList({ task, id, completed }) {
             src="image/pen-solid.png"
             alt="Edit"
             className="todolist__edit"
+            onClick={() => {
+              dispatch(openEdit(task, id));
+            }}
           />
           <img
             src="image/trash-solid.png"

@@ -15,8 +15,8 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
-export const fetchDashboard = () => {
-  return API.get(`/todos/dashboard`);
+export const fetchDashboard = (id) => {
+  return API.get(`/todos/dashboard/${id}`);
 };
 
 export const fetchTasks = () => {

@@ -1,6 +1,6 @@
 import "./UtilityBar.css";
 import { useDispatch } from "react-redux";
-import { openNewTask } from "../../actions/todos";
+import { openModal } from "../../actions/todos";
 
 function UtilityBar() {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ function UtilityBar() {
         <button
           className="utilitybar__button"
           onClick={() => {
-            dispatch(openNewTask());
+            dispatch(openModal());
           }}
         >
           + New Task

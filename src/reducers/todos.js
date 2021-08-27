@@ -8,13 +8,21 @@ import {
   END_LOADING,
   NEW_TASK,
   NEW_TASK_CLOSE,
+  OPEN_MODAL,
+  CLOSE_MODAL,
+  EDIT_MODAL,
 } from "../constants/actionTypes";
 
 export default (
-  state = { isLoading: true, tasks: [], isOpenNewTask: false },
+  state = {
+    isLoading: true,
+    tasks: [],
+    isOpenNewTask: false,
+    isModal: false,
+    edit: false,
+  },
   action
 ) => {
-  console.log(action.payload);
   switch (action.type) {
     case START_LOADING:
       return { ...state, isLoading: true };
@@ -56,6 +64,24 @@ export default (
 
     case NEW_TASK_CLOSE:
       return { ...state, isOpenNewTask: false };
+
+    case OPEN_MODAL:
+      return {
+        ...state,
+        isModal: true,
+      };
+
+    case EDIT_MODAL:
+      return {
+        ...state,
+        isModal: true,
+        task: action.payload.task,
+        id: action.payload.id,
+        edit: true,
+      };
+
+    case CLOSE_MODAL:
+      return { ...state, isModal: false, edit: false };
 
     default:
       return state;

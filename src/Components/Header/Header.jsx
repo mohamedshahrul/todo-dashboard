@@ -26,7 +26,7 @@ function Header() {
 
   const logout = () => {
     dispatch({ type: "LOGOUT" });
-    history.push("/");
+    history.push("/login");
     setUser(null);
   };
 
