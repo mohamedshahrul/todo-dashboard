@@ -3,7 +3,7 @@ import "./CustomCard.css";
 
 function CustomCard() {
   const { tasks, isOpenNewTask } = useSelector((state) => state.tasks);
-  const completed = tasks?.data?.filter(({ completed, task }) => {
+  const completed = tasks?.filter(({ completed, task }) => {
     if (completed === true) return task;
   });
 
@@ -12,7 +12,7 @@ function CustomCard() {
       <label className="customcard_title">Task Completed</label>
       <div className="customcard__taskCount">
         <h1 className="customcard__available">{completed?.length}</h1>
-        <p className="customcard__total">/ {tasks?.data?.length}</p>
+        <p className="customcard__total">/ {tasks?.length}</p>
       </div>
     </div>
   );

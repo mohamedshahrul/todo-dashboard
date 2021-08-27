@@ -14,6 +14,7 @@ export default (
   state = { isLoading: true, tasks: [], isOpenNewTask: false },
   action
 ) => {
+  console.log(action.payload);
   switch (action.type) {
     case START_LOADING:
       return { ...state, isLoading: true };
@@ -24,7 +25,7 @@ export default (
     case FETCH_DASHBOARD:
       return {
         ...state,
-        tasks: action.payload,
+        tasks: action.payload.data,
       };
 
     case FETCH_TASKS:
@@ -34,7 +35,7 @@ export default (
       };
 
     case CREATE:
-      return { ...state, tasks: [...state.tasks.data, action.payload] };
+      return { ...state, tasks: [...state.tasks, action.payload] };
 
     case UPDATE:
       return {
@@ -47,7 +48,7 @@ export default (
     case DELETE:
       return {
         ...state,
-        tasks: state.tasks.data.filter((task) => task._id !== action.payload),
+        tasks: state.tasks.filter((task) => task._id !== action.payload),
       };
 
     case NEW_TASK:

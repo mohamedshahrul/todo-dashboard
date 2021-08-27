@@ -9,7 +9,7 @@ function TodoContainer() {
   return (
     <>
       <div className="todoContainer">
-        {tasks?.data?.map(({ task, completed, _id }) => (
+        {tasks?.map(({ task, completed, _id }) => (
           <TodoList task={task} id={_id} key={_id} completed={completed} />
         ))}
       </div>

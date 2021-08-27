@@ -41,7 +41,7 @@ export const createTask = (task, history) => async (dispatch) => {
     const { data } = await api.createTask(task);
 
     dispatch({ type: CREATE, payload: data });
-    dispatch(getDashboard());
+    // dispatch(getDashboard());
     dispatch({ type: END_LOADING });
   } catch (error) {
     console.log(error);
@@ -51,7 +51,7 @@ export const createTask = (task, history) => async (dispatch) => {
 export const updateTask = (id, task) => async (dispatch) => {
   try {
     const { data } = await api.updateTask(id, task);
-    dispatch(getDashboard());
+    // dispatch(getDashboard());
     dispatch({ type: UPDATE, payload: data });
   } catch (error) {
     console.log(error);
@@ -63,7 +63,7 @@ export const deleteTask = (id) => async (dispatch) => {
     await api.deleteTask(id);
 
     dispatch({ type: DELETE, payload: id });
-    dispatch(getDashboard());
+    // dispatch(getDashboard());
   } catch (error) {
     console.log(error);
   }

@@ -9,7 +9,7 @@ function CreatedTasks() {
       <label className="createdtasks_title">Latest Created Tasks</label>
       <div className="createdtasks__contianer">
         <ul reversed className="createdtasks_list">
-          {tasks?.data
+          {tasks
             ?.map(({ task, _id }) => (
               <li task={task} key={_id}>
                 {task}

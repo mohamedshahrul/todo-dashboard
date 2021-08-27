@@ -13,20 +13,18 @@ import UtilityBar from "../UtilityBar/UtilityBar";
 function Dashboard() {
   const dispatch = useDispatch();
   const { tasks, isOpenNewTask } = useSelector((state) => state.tasks);
-
+  console.log(tasks);
   useEffect(() => {
     dispatch(getDashboard());
-  }, [dispatch, isOpenNewTask]);
+  }, [dispatch]);
 
-  if (tasks?.data?.length === 0) {
-    if (!tasks?.data?.length && !isOpenNewTask)
-      return (
-        <>
-          <Header />
-          <NoTask />
-        </>
-      );
-  }
+  if (!tasks?.length && !isOpenNewTask)
+    return (
+      <>
+        <Header />
+        <NoTask />
+      </>
+    );
 
   return (
     <>
