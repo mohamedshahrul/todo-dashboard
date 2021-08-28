@@ -3,6 +3,10 @@
 You can view a live demo over at [HERE](https://todo-frontend-shahrul.herokuapp.com/). \
 Zoom out the browser screen to fit your view
 
+Can try my sample ID or can sign up your own.
+Id: 1234
+Name: Shah
+
 ## Getting started
 
 To get the frontend running locally:
