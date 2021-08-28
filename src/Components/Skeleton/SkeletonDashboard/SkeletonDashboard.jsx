@@ -17,8 +17,6 @@ function SkeletonDashboard({ placement }) {
     return (
       <section className="skeleton__appTodoContainer">
         <SkeletonElement type="thumbnail" />
-        <SkeletonElement type="thumbnail" />
-        <SkeletonElement type="thumbnail" />
       </section>
     );
 }
