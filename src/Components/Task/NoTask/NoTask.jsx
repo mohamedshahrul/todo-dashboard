@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { openNewTask } from "../../actions/todos";
+import { openNewTask } from "../../../actions/todos";
 import "./NoTask.css";
 
 function NoTask() {

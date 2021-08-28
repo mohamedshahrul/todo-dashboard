@@ -1,13 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  closeNewTask,
-  deleteTask,
-  getDashboard,
-  openEdit,
-  openModal,
-  updateTask,
-} from "../../actions/todos";
+import { deleteTask, openEdit, updateTask } from "../../../actions/todos";
 
 import "./TodoList.css";
 

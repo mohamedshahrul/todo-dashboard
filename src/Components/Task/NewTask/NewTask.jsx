@@ -6,7 +6,7 @@ import {
   createTask,
   getDashboard,
   updateTask,
-} from "../../actions/todos";
+} from "../../../actions/todos";
 import { useRef, useState } from "react";
 
 function NewTask() {

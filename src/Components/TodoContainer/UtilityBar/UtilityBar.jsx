@@ -1,6 +1,6 @@
 import "./UtilityBar.css";
 import { useDispatch } from "react-redux";
-import { getPostsBySearch, openModal } from "../../actions/todos";
+import { getPostsBySearch, openModal } from "../../../actions/todos";
 import { useState } from "react";
 
 function UtilityBar() {
