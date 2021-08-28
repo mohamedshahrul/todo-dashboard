@@ -51,7 +51,6 @@ function NewTask() {
       dispatch(closeNewTask());
     }
   };
-  console.log(!postData?.task);
 
   return (
     <div className="newtask__modal" onClick={close}>

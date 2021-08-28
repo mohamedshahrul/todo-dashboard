@@ -23,7 +23,6 @@ export default (
   },
   action
 ) => {
-  console.log(action.payload);
   switch (action.type) {
     case START_LOADING:
       return { ...state, isLoading: true };
