@@ -35,7 +35,7 @@ export const getPostsBySearch = (searchQuery) => async (dispatch) => {
     if (data?.length > 0) {
       dispatch({ type: FETCH_BY_SEARCH, payload: data });
     } else {
-      alert("No Result");
+      dispatch(openModal());
     }
 
     dispatch({ type: END_LOADING });

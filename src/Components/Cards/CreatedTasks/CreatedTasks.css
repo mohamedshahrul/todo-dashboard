@@ -48,6 +48,10 @@
   color: #8f9ea2;
 }
 
+.createdtasks__checked {
+  text-decoration: line-through;
+}
+
 /*Hide scrollbar  for Chrome, Safari and Opera*/
 .createdtasks__contianer::-webkit-scrollbar {
   display: none;

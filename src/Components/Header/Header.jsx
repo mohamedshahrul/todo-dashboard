@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router";
 import decode from "jwt-decode";
 import { useEffect, useState } from "react";
+import { getDashboard } from "../../actions/todos";
 
 function Header() {
   const dispatch = useDispatch();
@@ -10,6 +11,7 @@ function Header() {
   const location = useLocation();
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const id = user?.result?.userId;
 
   useEffect(() => {
     const token = user?.token;
@@ -39,7 +41,8 @@ function Header() {
             alt="Profile"
             className="header__image"
             onClick={() => {
-              history.push("/");
+              dispatch(getDashboard(id));
+              // history.push("/");
             }}
           />
           <p className="header__name">{user?.result?.displayName}</p>

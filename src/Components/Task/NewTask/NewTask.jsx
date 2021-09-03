@@ -4,7 +4,6 @@ import {
   closeModal,
   closeNewTask,
   createTask,
-  getDashboard,
   updateTask,
 } from "../../../actions/todos";
 import { useRef, useState } from "react";

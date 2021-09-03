@@ -1,10 +1,9 @@
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import TodoList from "./TodoList/TodoList";
 import "./TodoContainer.css";
 
 function TodoContainer() {
-  const { tasks, isOpenNewTask } = useSelector((state) => state.tasks);
+  const { tasks } = useSelector((state) => state.tasks);
 
   return (
     <>

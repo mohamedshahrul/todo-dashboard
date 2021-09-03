@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import "./CustomCard.css";
 
 function CustomCard() {
-  const { tasks, isOpenNewTask } = useSelector((state) => state.tasks);
+  const { tasks } = useSelector((state) => state.tasks);
   const completed = tasks?.filter(({ completed, task }) => {
     if (completed === true) return task;
   });
