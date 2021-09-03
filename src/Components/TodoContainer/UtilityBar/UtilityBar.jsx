@@ -21,7 +21,11 @@ function UtilityBar() {
       </div>
       <div className="utilitybar__right">
         <form className="utilitybar__searchContainer" onSubmit={search}>
-          <img src="image/search-solid.png" className="utilitybar__icon" />
+          <img
+            src="image/search-solid.png"
+            className="utilitybar__icon"
+            alt=""
+          />
           <input
             value={searchInput}
             type="text"
